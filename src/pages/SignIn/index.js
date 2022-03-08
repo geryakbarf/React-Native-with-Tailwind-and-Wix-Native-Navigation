@@ -3,6 +3,8 @@ import {useTailwind} from 'tailwind-rn';
 import {Text, View, Pressable} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 
+const componentId = 'SignInScreen1';
+
 const SignIn = () => {
   const tailwind = useTailwind();
   return (
@@ -51,7 +53,7 @@ const SignIn = () => {
             },
           ]}
           onPress={() =>
-            Navigation.push('SignInScreen1', {
+            Navigation.push(componentId, {
               component: {
                 name: 'SignInScreen2',
                 id: 'SignInScreen2',
@@ -102,7 +104,20 @@ const SignIn = () => {
               borderColor: '#54A3DA',
               borderWidth: 2,
             },
-          ]}>
+          ]}
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                name: 'InstitutionScreen',
+                id: 'InstitutionScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('font-bold'),

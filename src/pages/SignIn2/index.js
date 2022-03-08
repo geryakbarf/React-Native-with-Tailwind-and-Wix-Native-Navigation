@@ -1,15 +1,10 @@
 import React from 'react';
 import {useTailwind} from 'tailwind-rn';
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  Text,
-  TextInput,
-
-} from 'react-native';
+import {Image, Pressable, ScrollView, Text, TextInput} from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 import {Navigation} from 'react-native-navigation';
+
+const componentId = 'SignInScreen2';
 
 const SignIn2 = () => {
   const tailwind = useTailwind();
@@ -24,7 +19,8 @@ const SignIn2 = () => {
             borderRadius: 20,
             elevation: 3,
           },
-        ]}>
+        ]}
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={[tailwind('h-6 w-6 mr-2')]} />
       </Pressable>
       <Text style={tailwind('text-black font-bold text-2xl text-center')}>
@@ -66,12 +62,25 @@ const SignIn2 = () => {
           },
         ]}
         onPress={() =>
-          navigation.dispatch(
-            CommonActions.reset({
-              index: 1,
-              routes: [{name: 'Dashboard'}],
-            }),
-          )
+          Navigation.setRoot({
+            root: {
+              stack: {
+                children: [
+                  {
+                    component: {
+                      id: 'DashboardScreen',
+                      name: 'DashboardScreen',
+                      options: {
+                        topBar: {
+                          visible: false,
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          })
         }>
         <Text style={tailwind('text-white font-bold text-lg')}>Login</Text>
       </Pressable>

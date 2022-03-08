@@ -1,11 +1,10 @@
 import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Pressable, Text, View} from 'react-native';
-import {CommonActions, useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
 
 const Congratulations = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View style={tailwind('h-full bg-white')}>
       <View style={tailwind('flex h-full justify-center items-center')}>
@@ -53,12 +52,25 @@ const Congratulations = () => {
           },
         ]}
         onPress={() =>
-          navigation.dispatch(
-            CommonActions.reset({
-              index: 1,
-              routes: [{name: 'Dashboard'}],
-            }),
-          )
+          Navigation.setRoot({
+            root: {
+              stack: {
+                children: [
+                  {
+                    component: {
+                      id: 'DashboardScreen',
+                      name: 'DashboardScreen',
+                      options: {
+                        topBar: {
+                          visible: false,
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          })
         }>
         <Text style={tailwind('text-white font-bold text-lg')}>Next</Text>
       </Pressable>

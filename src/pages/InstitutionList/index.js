@@ -1,11 +1,12 @@
 import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Pressable, Text, View} from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'InstitutionScreen';
 
 const InstitutionList = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -109,7 +110,19 @@ const InstitutionList = () => {
               backgroundColor: '#54A3DA',
             },
           ]}
-          onPress={() => navigation.navigate('Register')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'RegisterScreen1',
+                name: 'RegisterScreen1',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text style={tailwind('text-white')}>
             Create Account (Trial Version)
           </Text>

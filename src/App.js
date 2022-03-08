@@ -47,7 +47,7 @@ export const WelcomeScreen = props => {
   );
 };
 
-const RegisterScreen = () => {
+export const RegisterScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Register />
@@ -55,7 +55,7 @@ const RegisterScreen = () => {
   );
 };
 
-const RegisterPersonalInformationScreen = () => {
+export const RegisterScreen2 = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Register2 />
@@ -63,7 +63,7 @@ const RegisterPersonalInformationScreen = () => {
   );
 };
 
-const RegisterCongratulationsScreen = () => {
+export const RegisterScreen3 = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Congratulations />
@@ -71,7 +71,7 @@ const RegisterCongratulationsScreen = () => {
   );
 };
 
-const DashboardScreen = () => {
+export const DashboardScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Dashboard />
@@ -95,7 +95,7 @@ export const SignInScreen2 = () => {
   );
 };
 
-const InstitutionListScreen = () => {
+export const InstitutionListScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <InstitutionList />

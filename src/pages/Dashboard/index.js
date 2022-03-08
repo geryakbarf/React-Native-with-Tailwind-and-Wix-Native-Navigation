@@ -2,11 +2,10 @@ import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Image, Pressable, Text, TextInput, View} from 'react-native';
 import iconDrawer from '../../assets/icons/ic_dashboard_drawer.png';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
 
 const Dashboard = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -47,8 +46,7 @@ const Dashboard = () => {
       </Text>
       <View style={tailwind('flex-row justify-center mt-4 ml-6 mr-6')}>
         <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('New Session')}>
+          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-16 text-center'),
@@ -93,8 +91,7 @@ const Dashboard = () => {
       </Text>
       <View style={tailwind('flex-row justify-center mt-4 ml-6 mr-6')}>
         <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('Photos')}>
+          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-16 text-center'),

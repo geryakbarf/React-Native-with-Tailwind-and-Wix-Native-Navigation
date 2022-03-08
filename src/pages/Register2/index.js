@@ -1,11 +1,12 @@
 import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Pressable, ScrollView, Text, TextInput, View} from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'RegisterScreen2';
 
 const Register2 = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View style={tailwind('h-full bg-white')}>
       <ScrollView>
@@ -57,7 +58,19 @@ const Register2 = () => {
             backgroundColor: '#54A3DA',
           },
         ]}
-        onPress={() => navigation.navigate('Register3')}>
+        onPress={() =>
+          Navigation.push(componentId, {
+            component: {
+              id: 'RegisterScreen3',
+              name: 'RegisterScreen3',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          })
+        }>
         <Text style={tailwind('text-white font-bold text-lg')}>Next</Text>
       </Pressable>
     </View>
