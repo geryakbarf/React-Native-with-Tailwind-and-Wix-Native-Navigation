@@ -11,13 +11,20 @@ import {
   PhotosScreen,
   RegisterScreen,
   RegisterScreen2,
-  RegisterScreen3, RelatedRubricScreen, Rubric1Screen,
+  RegisterScreen3,
+  RelatedRubricScreen,
+  Rubric1Screen, RubricAudioScreen,
+  RubricDetailScreen,
+  RubricPhotosScreen,
+  RubricScreen,
+  RubricTextScreen,
   SessionListScreen,
   SessionScreen,
   SessionSupervisorScreen,
   SignInScreen1,
   SignInScreen2,
-  TagsScreen, TextScreen,
+  TagsScreen,
+  TextScreen,
   WelcomeScreen,
 } from "./src/App";
 
@@ -48,6 +55,11 @@ Navigation.registerComponent('RelatedRubricScreen', () => RelatedRubricScreen);
 Navigation.registerComponent('Rubric1Screen', () => Rubric1Screen);
 Navigation.registerComponent('AudioScreen', () => AudioScreen);
 Navigation.registerComponent('AudioPlaylistScreen', () => AudioPlaylistScreen);
+Navigation.registerComponent('RubricScreen', () => RubricScreen);
+Navigation.registerComponent('RubricDetailScreen', () => RubricDetailScreen);
+Navigation.registerComponent('RubricTextScreen', () => RubricTextScreen);
+Navigation.registerComponent('RubricPhotosScreen', () => RubricPhotosScreen);
+Navigation.registerComponent('RubricAudioScreen', () => RubricAudioScreen);
 
 Navigation.events().registerAppLaunchedListener(async () => {
   Navigation.setRoot({

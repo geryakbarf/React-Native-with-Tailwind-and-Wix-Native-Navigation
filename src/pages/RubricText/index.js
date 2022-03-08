@@ -9,11 +9,12 @@ import {
 } from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import iconBack from '../../assets/icons/ic_session_back.png';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation } from "react-native-navigation";
+
+const componentId = 'RubricTextScreen';
 
 const RubricText = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <ScrollView
       style={[
@@ -31,7 +32,7 @@ const RubricText = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('text-black text-center font-bold text-lg mt-4')}>
@@ -118,7 +119,7 @@ const RubricText = () => {
               borderColor: '#54A3DA',
             },
           ]}
-          onPress={() => navigation.goBack()}>
+          onPress={() => Navigation.pop(componentId)}>
           <Text
             style={{
               color: '#54A3DA',

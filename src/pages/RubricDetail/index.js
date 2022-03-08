@@ -9,13 +9,14 @@ import {
   View,
 } from 'react-native';
 import iconBack from '../../assets/icons/ic_session_back.png';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
 import iconDropDown from '../../assets/icons/ic_tags_dropdown.png';
 import iconUp from '../../assets/icons/ic_rubric_up.png';
 
+const componentId = 'RubricDetailScreen';
+
 const RubricDetail = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   const mainScrollView = useRef();
   const onButtonClick = () => {
     mainScrollView.current.scrollTo({
@@ -41,7 +42,7 @@ const RubricDetail = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('text-center text-black font-bold text-lg mt-4')}>
@@ -147,7 +148,19 @@ const RubricDetail = () => {
               borderWidth: 2,
             },
           ]}
-          onPress={() => navigation.navigate('Rubric Text')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'RubricTextScreen',
+                name: 'RubricTextScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('text-base'),
@@ -168,7 +181,19 @@ const RubricDetail = () => {
               borderWidth: 2,
             },
           ]}
-          onPress={() => navigation.navigate('Rubric Photos')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'RubricPhotosScreen',
+                name: 'RubricPhotosScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('text-base'),
@@ -189,7 +214,19 @@ const RubricDetail = () => {
               borderWidth: 2,
             },
           ]}
-          onPress={() => navigation.navigate('Rubric Audio')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'RubricAudioScreen',
+                name: 'RubricAudioScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('text-base'),

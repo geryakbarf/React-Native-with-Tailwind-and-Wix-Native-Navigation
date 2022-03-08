@@ -1,12 +1,13 @@
 import React from 'react';
 import {useTailwind} from 'tailwind-rn';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation } from "react-native-navigation";
 import {Image, Pressable, ScrollView, Text, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 
+const componentId = 'RubricPhotosScreen';
+
 const RubricPhotos = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <ScrollView
       style={[
@@ -25,7 +26,7 @@ const RubricPhotos = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={[tailwind('h-6 w-6 mr-2')]} />
       </Pressable>
       <Text style={tailwind('mt-4 text-center text-black font-bold text-xl')}>
@@ -91,7 +92,7 @@ const RubricPhotos = () => {
             backgroundColor: '#54A3DA',
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Text style={tailwind('text-white')}>Save</Text>
       </Pressable>
     </ScrollView>

@@ -183,7 +183,7 @@ export const RelatedRubricScreen = () => {
   );
 };
 
-const RubricScreen = () => {
+export const RubricScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Rubric />
@@ -215,7 +215,7 @@ export const Rubric1Screen = () => {
   );
 };
 
-const RubricDetailScreen = () => {
+export const RubricDetailScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <RubricDetail />
@@ -223,7 +223,7 @@ const RubricDetailScreen = () => {
   );
 };
 
-const RubricTextScreen = () => {
+export const RubricTextScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <RubricText />
@@ -231,7 +231,7 @@ const RubricTextScreen = () => {
   );
 };
 
-const RubricPhotosScreen = () => {
+export const RubricPhotosScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <RubricPhotos />
@@ -239,7 +239,7 @@ const RubricPhotosScreen = () => {
   );
 };
 
-const RubricAudioScreen = () => {
+export const RubricAudioScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <RubricAudio />

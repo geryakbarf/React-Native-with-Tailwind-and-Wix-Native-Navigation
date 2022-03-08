@@ -2,11 +2,12 @@ import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Image, Pressable, Text, TextInput, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_session_back.png';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'RubricScreen';
 
 const Rubric = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -24,7 +25,7 @@ const Rubric = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('w-4 h-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('text-black text-center font-bold mt-4 text-lg')}>
@@ -58,7 +59,19 @@ const Rubric = () => {
             borderBottomColor: '#F2F2F2',
           },
         ]}
-        onPress={() => navigation.navigate('Rubric Details')}>
+        onPress={() =>
+          Navigation.push(componentId, {
+            component: {
+              id: 'RubricDetailScreen',
+              name: 'RubricDetailScreen',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          })
+        }>
         <Text style={tailwind('text-black text-lg ml-8')}>Rubric 1</Text>
       </Pressable>
       <View
