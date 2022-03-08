@@ -80,7 +80,21 @@ const SessionSupervisor = () => {
         </View>
       </View>
       <View style={tailwind('flex-row justify-center mt-8 ml-6 mr-6')}>
-        <Pressable style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
+        <Pressable
+          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'TextScreen',
+                name: 'TextScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),

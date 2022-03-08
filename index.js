@@ -9,15 +9,15 @@ import {
   PhotosScreen,
   RegisterScreen,
   RegisterScreen2,
-  RegisterScreen3,
+  RegisterScreen3, RelatedRubricScreen, Rubric1Screen,
   SessionListScreen,
   SessionScreen,
   SessionSupervisorScreen,
   SignInScreen1,
   SignInScreen2,
-  TagsScreen,
+  TagsScreen, TextScreen,
   WelcomeScreen,
-} from './src/App';
+} from "./src/App";
 
 Navigation.registerComponent('WelcomeScreen', () => WelcomeScreen);
 Navigation.registerComponent('SignInScreen1', () => SignInScreen1);
@@ -41,6 +41,9 @@ Navigation.registerComponent(
   'IncidentReportScreen',
   () => IncidentReportScreen,
 );
+Navigation.registerComponent('TextScreen', () => TextScreen);
+Navigation.registerComponent('RelatedRubricScreen', () => RelatedRubricScreen);
+Navigation.registerComponent('Rubric1Screen', () => Rubric1Screen);
 
 Navigation.events().registerAppLaunchedListener(async () => {
   Navigation.setRoot({

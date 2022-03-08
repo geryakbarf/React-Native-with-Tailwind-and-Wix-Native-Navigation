@@ -175,7 +175,7 @@ const AudioPlaylistScreen = () => {
   );
 };
 
-const RelatedRubricScreen = () => {
+export const RelatedRubricScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <RelatedRubric />
@@ -191,7 +191,7 @@ const RubricScreen = () => {
   );
 };
 
-const TextScreen = () => {
+export const TextScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <TextMenu />
@@ -207,7 +207,7 @@ export const TagsScreen = () => {
   );
 };
 
-const Rubric1Screen = () => {
+export const Rubric1Screen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Rubric1 />

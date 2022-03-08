@@ -10,13 +10,14 @@ import {
 } from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 import iconDropDown from '../../assets/icons/ic_tags_dropdown.png';
-import {CommonActions, useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
 import Modal from 'react-native-modalbox';
+
+const componentId = 'Rubric1Screen';
 
 const Rubric1 = () => {
   const [open, setOpen] = useState(false);
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <ScrollView
       style={[
@@ -38,10 +39,12 @@ const Rubric1 = () => {
                 backgroundColor: '#54A3DA',
               },
             ]}
-            onPress={() => navigation.pop(2)}>
+            onPress={() => Navigation.pop(componentId)}>
             <Text style={tailwind('text-white text-xs')}>Back</Text>
           </Pressable>
-          <Text style={tailwind('text-center text-black text-xs mt-2 mb-2')}>OR</Text>
+          <Text style={tailwind('text-center text-black text-xs mt-2 mb-2')}>
+            OR
+          </Text>
           <Pressable
             style={[
               tailwind(
@@ -51,14 +54,7 @@ const Rubric1 = () => {
                 borderColor: '#54A3DA',
               },
             ]}
-            onPress={() =>
-              navigation.dispatch(
-                CommonActions.reset({
-                  index: 1,
-                  routes: [{name: 'Session Supervisor'}],
-                }),
-              )
-            }>
+            onPress={() => Navigation.popTo('SessionSupervisorScreen')}>
             <Text
               style={[
                 tailwind('text-xs'),

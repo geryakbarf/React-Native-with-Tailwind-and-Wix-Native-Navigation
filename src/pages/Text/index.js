@@ -9,11 +9,12 @@ import {
 } from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import iconBack from '../../assets/icons/ic_session_back.png';
-import { useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'TextScreen';
 
 const TextMenu = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <ScrollView
       style={[
@@ -31,7 +32,7 @@ const TextMenu = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('text-black text-center font-bold text-lg mt-4')}>
@@ -116,7 +117,19 @@ const TextMenu = () => {
               backgroundColor: '#54A3DA',
             },
           ]}
-          onPress={() => navigation.navigate('Related Rubric')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                name: 'RelatedRubricScreen',
+                id: 'RelatedRubricScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text style={tailwind('text-white')}>Link to item Rubic</Text>
         </Pressable>
         <Text style={tailwind('text-black ')}>OR</Text>
@@ -129,7 +142,7 @@ const TextMenu = () => {
               borderColor: '#54A3DA',
             },
           ]}
-          onPress={() => navigation.goBack()}>
+          onPress={() => Navigation.pop(componentId)}>
           <Text
             style={{
               color: '#54A3DA',
