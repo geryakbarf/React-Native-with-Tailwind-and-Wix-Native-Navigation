@@ -2,11 +2,12 @@ import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Image, Pressable, Text, TextInput, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
-import { StackActions, useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'IncidentReportScreen';
 
 const IncidentReport = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -24,7 +25,7 @@ const IncidentReport = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('mt-4 text-center text-black text-lg font-bold')}>
@@ -139,7 +140,7 @@ const IncidentReport = () => {
             width: '70%',
           },
         ]}
-        onPress={() => navigation.dispatch(StackActions.pop(2))}>
+        onPress={() => Navigation.popTo('SessionSupervisorScreen')}>
         <Text style={tailwind('text-white text-center text-base font-bold')}>
           Save and Report
         </Text>

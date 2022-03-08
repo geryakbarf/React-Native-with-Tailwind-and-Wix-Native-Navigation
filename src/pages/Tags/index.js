@@ -1,13 +1,14 @@
 import React from 'react';
 import {useTailwind} from 'tailwind-rn';
-import {useNavigation} from '@react-navigation/native';
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
+import {Image, Pressable, ScrollView, Text, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 import iconDropDown from '../../assets/icons/ic_tags_dropdown.png';
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'TagsScreen';
 
 const Tags = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <ScrollView
       style={[
@@ -25,7 +26,7 @@ const Tags = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop('TagsScreen')}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('text-center text-black font-bold text-lg mt-4')}>
@@ -181,7 +182,7 @@ const Tags = () => {
             backgroundColor: '#54A3DA',
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop('TagsScreen')}>
         <Text style={tailwind('text-white font-bold')}>Save</Text>
       </Pressable>
     </ScrollView>

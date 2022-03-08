@@ -2,11 +2,12 @@ import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import imgQR from '../../assets/image/img_session_qr.png';
-import { useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'SessionScreen';
 
 const Session = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -105,7 +106,19 @@ const Session = () => {
               backgroundColor: '#54A3DA',
             },
           ]}
-          onPress={() => navigation.navigate('Session List')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'SessionListScreen',
+                name: 'SessionListScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[tailwind('text-center font-bold text-base text-white')]}>
             Proceed to Session

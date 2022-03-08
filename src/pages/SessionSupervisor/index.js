@@ -2,11 +2,12 @@ import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Image, Pressable, Text, TextInput, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_session_back.png';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'SessionSupervisorScreen';
 
 const SessionSupervisor = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -29,7 +30,7 @@ const SessionSupervisor = () => {
               elevation: 3,
             },
           ]}
-          onPress={() => navigation.goBack()}>
+          onPress={() => Navigation.pop(componentId)}>
           <Image source={iconBack} style={[tailwind('h-6 w-6 mr-1')]} />
         </Pressable>
         <View style={tailwind('flex w-full items-center mt-4')}>
@@ -79,9 +80,7 @@ const SessionSupervisor = () => {
         </View>
       </View>
       <View style={tailwind('flex-row justify-center mt-8 ml-6 mr-6')}>
-        <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('Text')}>
+        <Pressable style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),
@@ -92,9 +91,7 @@ const SessionSupervisor = () => {
             Text
           </Text>
         </Pressable>
-        <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('Rubric')}>
+        <Pressable style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),
@@ -105,9 +102,7 @@ const SessionSupervisor = () => {
             Rubric
           </Text>
         </Pressable>
-        <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('Audio')}>
+        <Pressable style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),
@@ -133,7 +128,19 @@ const SessionSupervisor = () => {
         </View>
         <Pressable
           style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('Incidents Terms')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'IncidentTermsScreen',
+                name: 'IncidentTermsScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),
@@ -146,7 +153,19 @@ const SessionSupervisor = () => {
         </Pressable>
         <Pressable
           style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
-          onPress={() => navigation.navigate('Tags')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'TagsScreen',
+                name: 'TagsScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),

@@ -2,11 +2,12 @@ import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Image, Pressable, Text, TextInput, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_session_back.png';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'SessionListScreen';
 
 const SessionList = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View style={tailwind('h-full')}>
       <View
@@ -26,7 +27,7 @@ const SessionList = () => {
               elevation: 3,
             },
           ]}
-          onPress={() => navigation.goBack()}>
+          onPress={() => Navigation.pop(componentId)}>
           <Image source={iconBack} style={[tailwind('h-6 w-6 mr-1')]} />
         </Pressable>
         <Text
@@ -88,7 +89,19 @@ const SessionList = () => {
               backgroundColor: '#54A3DA',
             },
           ]}
-          onPress={() => navigation.navigate('Session Supervisor')}>
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'SessionSupervisorScreen',
+                name: 'SessionSupervisorScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text style={tailwind('text-white')}>Assess</Text>
         </Pressable>
       </View>

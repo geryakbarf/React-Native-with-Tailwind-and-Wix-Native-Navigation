@@ -2,11 +2,22 @@ import React from 'react';
 import {Navigation} from 'react-native-navigation';
 import {
   DashboardScreen,
-  InstitutionListScreen, RegisterScreen, RegisterScreen2, RegisterScreen3,
+  IncidentReportScreen,
+  IncidentTermsScreen,
+  InstitutionListScreen,
+  NewSessionScreen,
+  PhotosScreen,
+  RegisterScreen,
+  RegisterScreen2,
+  RegisterScreen3,
+  SessionListScreen,
+  SessionScreen,
+  SessionSupervisorScreen,
   SignInScreen1,
   SignInScreen2,
+  TagsScreen,
   WelcomeScreen,
-} from "./src/App";
+} from './src/App';
 
 Navigation.registerComponent('WelcomeScreen', () => WelcomeScreen);
 Navigation.registerComponent('SignInScreen1', () => SignInScreen1);
@@ -16,6 +27,20 @@ Navigation.registerComponent('DashboardScreen', () => DashboardScreen);
 Navigation.registerComponent('RegisterScreen1', () => RegisterScreen);
 Navigation.registerComponent('RegisterScreen2', () => RegisterScreen2);
 Navigation.registerComponent('RegisterScreen3', () => RegisterScreen3);
+Navigation.registerComponent('PhotosScreen', () => PhotosScreen);
+Navigation.registerComponent('NewSessionScreen', () => NewSessionScreen);
+Navigation.registerComponent('SessionScreen', () => SessionScreen);
+Navigation.registerComponent('SessionListScreen', () => SessionListScreen);
+Navigation.registerComponent(
+  'SessionSupervisorScreen',
+  () => SessionSupervisorScreen,
+);
+Navigation.registerComponent('TagsScreen', () => TagsScreen);
+Navigation.registerComponent('IncidentTermsScreen', () => IncidentTermsScreen);
+Navigation.registerComponent(
+  'IncidentReportScreen',
+  () => IncidentReportScreen,
+);
 
 Navigation.events().registerAppLaunchedListener(async () => {
   Navigation.setRoot({

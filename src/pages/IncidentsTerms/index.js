@@ -2,11 +2,12 @@ import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 import {useTailwind} from 'tailwind-rn';
-import { useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'IncidentTermsScreen';
 
 const IncidentsTerms = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -24,7 +25,7 @@ const IncidentsTerms = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('mt-4 text-center text-black font-bold text-lg')}>
@@ -58,7 +59,19 @@ const IncidentsTerms = () => {
             width: '70%',
           },
         ]}
-        onPress={() => navigation.navigate('Incident Report')}>
+        onPress={() =>
+          Navigation.push(componentId, {
+            component: {
+              id: 'IncidentReportScreen',
+              name: 'IncidentReportScreen',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          })
+        }>
         <Text style={tailwind('text-white font-bold')}>Agree</Text>
       </Pressable>
     </View>

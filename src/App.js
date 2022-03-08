@@ -103,7 +103,7 @@ export const InstitutionListScreen = () => {
   );
 };
 
-const PhotosScreen = () => {
+export const PhotosScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Photos />
@@ -111,7 +111,7 @@ const PhotosScreen = () => {
   );
 };
 
-const NewSessionScreen = () => {
+export const NewSessionScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <NewSession />
@@ -119,7 +119,7 @@ const NewSessionScreen = () => {
   );
 };
 
-const SessionScreen = () => {
+export const SessionScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Session />
@@ -127,7 +127,7 @@ const SessionScreen = () => {
   );
 };
 
-const SessionListScreen = () => {
+export const SessionListScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <SessionList />
@@ -135,7 +135,7 @@ const SessionListScreen = () => {
   );
 };
 
-const SessionSupervisorScreen = () => {
+export const SessionSupervisorScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <SessionSupervisor />
@@ -143,7 +143,7 @@ const SessionSupervisorScreen = () => {
   );
 };
 
-const IncidentTermsScreen = () => {
+export const IncidentTermsScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <IncidentsTerms />
@@ -151,7 +151,7 @@ const IncidentTermsScreen = () => {
   );
 };
 
-const IncidentReportScreen = () => {
+export const IncidentReportScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <IncidentReport />
@@ -199,7 +199,7 @@ const TextScreen = () => {
   );
 };
 
-const TagsScreen = () => {
+export const TagsScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Tags />

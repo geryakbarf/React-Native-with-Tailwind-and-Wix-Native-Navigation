@@ -4,6 +4,8 @@ import {Image, Pressable, Text, TextInput, View} from 'react-native';
 import iconDrawer from '../../assets/icons/ic_dashboard_drawer.png';
 import {Navigation} from 'react-native-navigation';
 
+const componentId = 'DashboardScreen';
+
 const Dashboard = () => {
   const tailwind = useTailwind();
   return (
@@ -46,7 +48,20 @@ const Dashboard = () => {
       </Text>
       <View style={tailwind('flex-row justify-center mt-4 ml-6 mr-6')}>
         <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
+          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'NewSessionScreen',
+                name: 'NewSessionScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-16 text-center'),
@@ -91,7 +106,20 @@ const Dashboard = () => {
       </Text>
       <View style={tailwind('flex-row justify-center mt-4 ml-6 mr-6')}>
         <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
+          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'PhotosScreen',
+                name: 'PhotosScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-16 text-center'),
@@ -126,8 +154,7 @@ const Dashboard = () => {
         </View>
       </View>
       <View style={tailwind('flex-row justify-center mt-4 ml-6 mr-6')}>
-        <Pressable
-          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
+        <Pressable style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-16 text-center'),
