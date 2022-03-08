@@ -159,7 +159,7 @@ export const IncidentReportScreen = () => {
   );
 };
 
-const AudioScreen = () => {
+export const AudioScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <Audio />
@@ -167,7 +167,7 @@ const AudioScreen = () => {
   );
 };
 
-const AudioPlaylistScreen = () => {
+export const AudioPlaylistScreen = () => {
   return (
     <TailwindProvider utilities={utils}>
       <AudioPlaylist />

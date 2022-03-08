@@ -3,11 +3,12 @@ import {useTailwind} from 'tailwind-rn';
 import {Image, Pressable, Text, View} from 'react-native';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 import iconPlay from '../../assets/icons/ic_audio_play.png';
-import { useNavigation } from "@react-navigation/native";
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'AudioPlaylistScreen';
 
 const AudioPlaylist = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -25,7 +26,7 @@ const AudioPlaylist = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('text-black text-center font-bold mt-4 text-lg')}>
@@ -59,7 +60,19 @@ const AudioPlaylist = () => {
                 textDecorationLine: 'underline',
               },
             ]}
-            onPress={() => navigation.navigate('Related Rubric')}>
+            onPress={() =>
+              Navigation.push(componentId, {
+                component: {
+                  id: 'RelatedRubricScreen',
+                  name: 'RelatedRubricScreen',
+                  options: {
+                    topBar: {
+                      visible: false,
+                    },
+                  },
+                },
+              })
+            }>
             Link to Item Rubic
           </Text>
         </View>

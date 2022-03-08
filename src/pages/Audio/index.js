@@ -2,11 +2,12 @@ import React from 'react';
 import {useTailwind} from 'tailwind-rn';
 import iconBack from '../../assets/icons/ic_signin_back.png';
 import {Image, Pressable, Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Navigation} from 'react-native-navigation';
+
+const componentId = 'AudioScreen';
 
 const Audio = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -24,7 +25,7 @@ const Audio = () => {
             elevation: 3,
           },
         ]}
-        onPress={() => navigation.goBack()}>
+        onPress={() => Navigation.pop(componentId)}>
         <Image source={iconBack} style={tailwind('h-4 w-4 mr-1')} />
       </Pressable>
       <Text style={tailwind('mt-4 text-center text-lg text-black font-bold')}>
@@ -53,7 +54,19 @@ const Audio = () => {
             backgroundColor: '#54A3DA',
           },
         ]}
-        onPress={() => navigation.navigate('Related Rubric')}>
+        onPress={() =>
+          Navigation.push(componentId, {
+            component: {
+              id: 'RelatedRubricScreen',
+              name: 'RelatedRubricScreen',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          })
+        }>
         <Text style={tailwind('text-white')}>Link to Item Rubic</Text>
       </Pressable>
       <Text style={tailwind('text-center text-black mt-4')}>OR</Text>
@@ -66,7 +79,19 @@ const Audio = () => {
             borderColor: '#54A3DA',
           },
         ]}
-        onPress={() => navigation.navigate('Audio Playlist')}>
+        onPress={() =>
+          Navigation.push(componentId, {
+            component: {
+              id: 'AudioPlaylistScreen',
+              name: 'AudioPlaylistScreen',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          })
+        }>
         <Text
           style={{
             color: '#54A3DA',

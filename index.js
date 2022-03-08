@@ -1,6 +1,8 @@
 import React from 'react';
 import {Navigation} from 'react-native-navigation';
 import {
+  AudioPlaylistScreen,
+  AudioScreen,
   DashboardScreen,
   IncidentReportScreen,
   IncidentTermsScreen,
@@ -44,6 +46,8 @@ Navigation.registerComponent(
 Navigation.registerComponent('TextScreen', () => TextScreen);
 Navigation.registerComponent('RelatedRubricScreen', () => RelatedRubricScreen);
 Navigation.registerComponent('Rubric1Screen', () => Rubric1Screen);
+Navigation.registerComponent('AudioScreen', () => AudioScreen);
+Navigation.registerComponent('AudioPlaylistScreen', () => AudioPlaylistScreen);
 
 Navigation.events().registerAppLaunchedListener(async () => {
   Navigation.setRoot({

@@ -116,7 +116,21 @@ const SessionSupervisor = () => {
             Rubric
           </Text>
         </Pressable>
-        <Pressable style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}>
+        <Pressable
+          style={tailwind('flex-1 rounded h-28 bg-white ml-2 mr-2')}
+          onPress={() =>
+            Navigation.push(componentId, {
+              component: {
+                id: 'AudioScreen',
+                name: 'AudioScreen',
+                options: {
+                  topBar: {
+                    visible: false,
+                  },
+                },
+              },
+            })
+          }>
           <Text
             style={[
               tailwind('ml-4 mr-4 mt-20 text-center'),
